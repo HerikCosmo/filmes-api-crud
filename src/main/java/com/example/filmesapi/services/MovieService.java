@@ -18,4 +18,10 @@ public class MovieService {
 
         return result;
     }
+
+    public Movie findById(Long id) {
+        Movie movie = movieRepository.findById(id).get();
+
+        return movie;
+    }
 }
