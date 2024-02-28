@@ -12,17 +12,12 @@ public class WebConfig {
     private String corsOrigins;
 
     @Bean
-    WebMvcConfigurer corsConfigurer() {
+    public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry
-                    .addMapping("/**")
-                    .allowedOrigins(corsOrigins)
-                    .allowedHeaders("*")
-                    .allowedMethods("*");
-            }            
+                registry.addMapping("/**").allowedMethods("*").allowedOrigins(corsOrigins);
+            }
         };
-    }
-    
+    }    
 }
