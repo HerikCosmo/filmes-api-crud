@@ -95,6 +95,12 @@ public class Movie {
         } else if (!id.equals(other.id))
             return false;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie [id=" + id + ", title=" + title + ", description=" + description + ", year=" + year + ", imgUrl="
+                + imgUrl + "]";
     } 
     
     

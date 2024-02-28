@@ -10,6 +10,8 @@ import com.example.filmesapi.entities.Movie;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 
@@ -29,5 +31,8 @@ public class MovieController {
         return movieService.findById(id);
     }
     
-    
+    @PostMapping
+    public void create(@RequestBody Movie movie){
+        movieService.create(movie);
+    }
 }
