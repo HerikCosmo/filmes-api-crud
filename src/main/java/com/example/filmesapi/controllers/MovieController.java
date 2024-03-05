@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -34,5 +35,10 @@ public class MovieController {
     @PostMapping
     public void create(@RequestBody Movie movie){
         movieService.create(movie);
+    }
+
+    @PutMapping(value = "/{id}")
+    public void findById(@PathVariable Long id, @RequestBody Movie movie) {
+        movieService.update(id, movie);
     }
 }
