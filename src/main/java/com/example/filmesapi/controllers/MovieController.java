@@ -8,6 +8,8 @@ import com.example.filmesapi.services.MovieService;
 import com.example.filmesapi.entities.Movie;
 
 import java.util.List;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,7 +40,12 @@ public class MovieController {
     }
 
     @PutMapping(value = "/{id}")
-    public void findById(@PathVariable Long id, @RequestBody Movie movie) {
+    public void update(@PathVariable Long id, @RequestBody Movie movie) {
         movieService.update(id, movie);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable Long id) {
+        movieService.delete(id);
     }
 }
