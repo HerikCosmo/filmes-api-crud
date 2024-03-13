@@ -1,6 +1,7 @@
 package com.example.filmesapi.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.filmesapi.entities.Movie;
@@ -15,7 +16,7 @@ public class MovieService {
     private MovieRepository movieRepository;
 
     public List<Movie> findAll() {
-        List<Movie> result = movieRepository.findAll();
+        List<Movie> result = movieRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
 
         return result;
     }
